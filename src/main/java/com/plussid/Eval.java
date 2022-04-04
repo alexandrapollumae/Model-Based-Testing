@@ -3,8 +3,8 @@ package com.plussid;
 public class Eval {
     /**
      * Defineeri meetod eval, mis väärtustab etteantud avaldise.
-     * @param str on plussidega eraldatud arvude jada, näiteks "5 + 35+  10".
-     * @return arvude summa, antud näide puhul 50.
+     * @param str on plusside või miinustega eraldatud arvude jada, näiteks "5 + 35-  10".
+     * @return avaldise väärtus, antud näide puhul 30.
      */
     public static int eval(String str) {
         int sum = 0;
@@ -22,6 +22,7 @@ public class Eval {
     }
 
     public static void main(String[] args) {
-        System.out.println(eval("-7-24"));
+        System.out.println(eval("7+24"));
+        System.out.println(eval("5 + 35-  10"));
     }
 }

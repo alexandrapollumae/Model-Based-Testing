@@ -8,7 +8,7 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 
 
-@GraphWalker(value = "random(edge_coverage(100))", start = "v_Pos")
+@GraphWalker(value = "random(edgecoverage(100))", start = "v_Positive")
 public class AnotherSmallTest extends ExecutionContext implements EvalTest {
 
   StringBuilder input = new StringBuilder();
@@ -16,51 +16,45 @@ public class AnotherSmallTest extends ExecutionContext implements EvalTest {
   Random rnd = new Random();
 
   private void check() {
-    System.out.printf("Checking %s (expected %d).\n", input.toString(), expected);
-    assertEquals(expected, Eval.eval(input.toString()));
+    int actual = Eval.eval(input.toString());
+    System.out.printf("Checking %s (expected %d, actual %d).\n", input.toString(), expected, actual);
+    assertEquals(expected, actual);
   }
 
   @Override
-  public void e_Op() {
-    input.append("+");
+  public void e_MinusOperator() {
+    input.append("-");
   }
 
   @Override
-  public void e_Num() {
+  public void v_Expected() {
+    check();
+  }
+
+  @Override
+  public void e_Addition() {
     int i = rnd.nextInt(200)-100;
     input.append(i);
     expected += i;
   }
 
   @Override
-  public void e_Space() {
-    input.append(' ');
+  public void e_PlusOperator() {
+
   }
 
   @Override
-  public void v_expectOp() {
+  public void e_Subtraction() {
+
+  }
+
+  @Override
+  public void v_Positive() {
     check();
   }
 
   @Override
-  public void v_Pos() {
+  public void v_Negative() {
     check();
-  }
-
-  @Override
-  public void e_Minus() {
-    input.append("-");
-  }
-
-  @Override
-  public void v_Neg() {
-    check();
-  }
-
-  @Override
-  public void e_NegNum() {
-    int i = rnd.nextInt(200)-100;
-    input.append(i);
-    expected -= i;
   }
 }
