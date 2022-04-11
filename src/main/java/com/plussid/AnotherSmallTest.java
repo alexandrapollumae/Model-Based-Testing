@@ -8,7 +8,7 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 
 
-@GraphWalker(value = "random(edgecoverage(100))", start = "v_Positive")
+//@GraphWalker(value = "random(edgecoverage(100))", start = "v_Positive")
 public class AnotherSmallTest extends ExecutionContext implements EvalTest {
 
   StringBuilder input = new StringBuilder();
