@@ -33,7 +33,7 @@
   <groupId>org.graphwalker</groupId>
   <version>4.3.1</version>
   <artifactId>graphwalker-maven-archetype</artifactId>
-  <name>GraphWalker Example</name>
+  <name>GraphWalker</name>
 
   <properties>
     <graphwalker.version>4.3.1</graphwalker.version>

@@ -1,6 +1,6 @@
 package com.loginExample;
 
-public class LoginFunctionality {
+public class User {
     private boolean loggedIn;
     String password_;
     String username_;
@@ -14,10 +14,10 @@ public class LoginFunctionality {
         this.loggedIn = loggedIn;
     }
 
-    public LoginFunctionality() {
+    public User() {
         loggedIn = false;
-        password_ = "õigeParool123";
         username_ = "Kasutajanimi";
+        password_ = "õigeParool123";
         output = "Välja logitud";
     }
 
@@ -40,13 +40,13 @@ public class LoginFunctionality {
     }
 
     public static void main(String[] args) {
-        LoginFunctionality test  = new LoginFunctionality();
+        User test  = new User();
         test.inputCredentials("Kasutajanimi", "õigeParool123");
         System.out.println(test.isLoggedIn());
         test.logOut();
         System.out.println(test.isLoggedIn());
 
-        LoginFunctionality vale = new LoginFunctionality();
+        User vale = new User();
         vale.inputCredentials("kasutaja", "parool");
         System.out.println(vale.isLoggedIn());
     }
