@@ -1,4 +1,4 @@
-Näide mudelipõhisest testimisest Graphwalkeril sisselogimise funktsionaalsusest.
+### Näide mudelipõhisest testimisest Graphwalkeril sisselogimise funktsionaalsusest.
 
 Kaustas ``src/main/java/com/User`` on java fail LoginFunctionality, kus on lihtne näitekood sisselogimise
 funktsionaalsusest. 
@@ -49,7 +49,8 @@ ja sealt pane tööle ``Graphwalker > Plugins > graphwalker > graphwalker:genera
 Genereeritud liidese klassi leiab teelt ``target/generated-sources/graphwalker/com/loginExample/LogInFunctionalityTest.java``.
 
 Nüüd saame hakata lõpuks automaatselt genereeritud test teedesse teste kirjutama. Selleks avame klassi 
-``src/main/java/com/LoginTest``. Antud klassis on juba vajalikud impordid ja Graphwalkeri annotatsioon olemas. Et saada 
+``src/main/java/com/LoginTest``. Antud klassis on juba vajalikud impordid ja Graphwalkeri annotatsioon olemas (võta 
+kommentaar maha). Et saada 
 vajalikud testid, peame implementeerima genereeritud liidese ja selle meetodid. Olek ehk 'vertex' tähistab kontrolli ning
 kaar ehk 'edge' tähistab tegevust. Sellepärast on meil ka mudeli elementide nimedel ees vastavalt "e" või "v" täht, et 
 teaksime, mida teha. Alustame algolekust ehk ``v_Login_Page_User_Logged_Out``. Esmalt loome seal `User` isendi.
@@ -182,6 +183,56 @@ võiks mingi viga tekkida ja jooksutame uuesti teste. Näiteks nii:
     }
 ```
 
-Kohe näeme, et on mingid testid on läbi kukkunud. 
+Kohe näeme, et on mingid testid on läbi kukkunud. Uurime "Run" akent (kuna meie kood läbib mudelit juhuslikult, siis võib
+sinu pilt olla natuke teistsugusem):
+```
+"totalFailedNumberOfModels": 1,
+  "totalNotExecutedNumberOfModels": 0,
+  "totalNumberOfUnvisitedVertices": 1,
+  "verticesNotVisited": [{
+    "modelName": "LogInFunctionalityTest",
+    "vertexName": "v_Wrong_Username",
+    "vertexId": "d36d1540-b6b5-11ec-a05f-cd07648777e4"
+  }],
+  "totalNumberOfModels": 1,
+  "totalCompletedNumberOfModels": 0,
+  "totalNumberOfVisitedEdges": 2,
+  "totalIncompleteNumberOfModels": 0,
+  "edgesNotVisited": [
+    {
+      "modelName": "LogInFunctionalityTest",
+      "edgeId": "50b851d0-b6b7-11ec-a05f-cd07648777e4",
+      "edgeName": "e_Input_Correct_Credentials"
+    },
+    {
+      "modelName": "LogInFunctionalityTest",
+      "edgeId": "5a2f6a50-b6b7-11ec-a05f-cd07648777e4",
+      "edgeName": "e_Input_Incorrect_Username"
+    },
+    {
+      "modelName": "LogInFunctionalityTest",
+      "edgeId": "67499a30-b6b7-11ec-a05f-cd07648777e4",
+      "edgeName": "e_Input_Correct_Credentials"
+    },
+    {
+      "modelName": "LogInFunctionalityTest",
+      "edgeId": "72e16fd0-b6b7-11ec-a05f-cd07648777e4",
+      "edgeName": "e_Log_Out"
+    }
+  ],
+  "vertexCoverage": 75,
+  "totalNumberOfEdges": 6,
+  "totalNumberOfVisitedVertices": 3,
+  "edgeCoverage": 33,
+  "totalNumberOfVertices": 4,
+  "totalNumberOfUnvisitedEdges": 4
+}
+```
+See Graphwalkeri tulemus näitab ainult pinnapealset infot - mis olekud või servad jäid läbimata jne. Sellepärast panimegi
+testide sisse ka väljastamised, et näha kus täpsemalt test läbi kukub. Selleks kerime "Run" aknas natuke ülespoole ja
+näeme midagi sellist, sinisega on märgitud mis meetodis test nurjus:
 
+![](pildid/graphwalker5.png)
 
+PS! Enne järgmise ülesande juurde liikumist, pange LoginTest koodis Graphwalkeri annotatsioon uuesti kommentaari alla. 
+Vastasel juhul teste jooksutades paneme tööle korraga mitu mudelit, aga lihtsam on korraga ühe ülesande kaupa vaadata. 
