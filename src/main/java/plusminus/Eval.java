@@ -1,4 +1,4 @@
-package com.plusminus;
+package plusminus;
 
 public class Eval {
     /**

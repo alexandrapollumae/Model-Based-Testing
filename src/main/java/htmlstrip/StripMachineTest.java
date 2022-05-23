@@ -1,6 +1,7 @@
-package com.htmlstrip;
+package htmlstrip;
 
 import org.graphwalker.core.machine.ExecutionContext;
+import org.graphwalker.java.annotation.GraphWalker;
 
 import static org.junit.Assert.assertEquals;
 

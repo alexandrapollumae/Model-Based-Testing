@@ -1,6 +1,7 @@
-package com.plusminus;
+package plusminus;
 
 import org.graphwalker.core.machine.ExecutionContext;
+import org.graphwalker.java.annotation.GraphWalker;
 
 import java.util.Random;
 
