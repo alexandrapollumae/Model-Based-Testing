@@ -1,7 +1,6 @@
-package com.plussid;
+package com.plusminus;
 
 import org.graphwalker.core.machine.ExecutionContext;
-import org.graphwalker.java.annotation.GraphWalker;
 
 import java.util.Random;
 
@@ -9,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 
 //@GraphWalker(value = "random(edgecoverage(100))", start = "v_Positive")
-public class AnotherSmallTest extends ExecutionContext implements EvalTest {
+public class PlusMinusTest extends ExecutionContext implements EvalTest {
 
   StringBuilder input = new StringBuilder();
   int expected = 0;

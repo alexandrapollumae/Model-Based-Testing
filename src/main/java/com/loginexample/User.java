@@ -1,4 +1,4 @@
-package com.loginExample;
+package com.loginexample;
 
 public class User {
     private boolean loggedIn;

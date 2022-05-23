@@ -1,5 +1,5 @@
-package com.HtmlStrip;
-import static com.HtmlStrip.HtmlStripMachine.State.*;
+package com.htmlstrip;
+import static com.htmlstrip.HtmlStripMachine.State.*;
 
 public class HtmlStripMachine {
     enum State {

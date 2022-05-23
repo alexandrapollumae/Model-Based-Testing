@@ -1,4 +1,4 @@
-package com.plussid;
+package com.plusminus;
 
 public class Eval {
     /**
@@ -9,16 +9,26 @@ public class Eval {
     public static int eval(String str) {
         int sum = 0;
         int current = 0;
+        int sign = 1;
+        boolean wasDigit = false;
         for (char c : str.toCharArray()) {
             if (c == '+') {
-                sum += current;
+                sum += sign * current;
                 current = 0;
+                if (wasDigit) sign = 1;
+                wasDigit = false;
+            } else if (c == '-') {
+                sum += sign * current;
+                sign *= -1;
+                current = 0;
+                wasDigit = false;
             }
             else if (Character.isDigit(c)) {
                 current = 10 * current + Character.getNumericValue(c);
+                wasDigit = true;
             }
         }
-        return sum + current;
+        return sum + sign *current;
     }
 
     public static void main(String[] args) {
